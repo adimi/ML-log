@@ -1,6 +1,8 @@
 # ML-log
 The SQL schema depicted below comprises three areas of information: (i) dataset info, (ii) experiment/single run context and result and (iii) algorithmic details.
 
+![alt text](https://github.com/adimi/ML-log/blob/main/mllog_ER_diagram.png?raw=true)
+
 ## 1. Dataset info
 Descriptive information of the dataset comprises general information and feature specific information. The general information of the dataset includes file name, file location, dataset source and basic characteristics, such as number of samples and features, as well as whether samples are classified. For each feature, its name and order in the dataset is given. In addition, the type of the feature, the number of null values and some insights on the distribution and density of the feature are also reported.
 
