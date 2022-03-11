@@ -10,7 +10,7 @@ Descriptive information of the dataset comprises general information and feature
 This information is supposed to be given upon import of the specific dataset through an automatic analysis process and additional manual input of descriptive attributes. 
 
 ## 2. Experiment/single run context and result
-Each time a model is trained on a particular dataset, some basic information of the experiment, its context and result is reported. For each experiment, a description maybe given, a reference to the algorithmic approach, information about the system setup and its context. The context is relevant with the scope of the training, e.g. the relevant project or task. For each trining, the relevant quality measures form the result of the experiment, i.e., accuracy, F1 measure, mean squared error etc.
+Each time a model is trained on a particular dataset, some basic information of the experiment, its context and result are reported. For each experiment, a description may be given, a reference to the algorithmic approach, information about the system setup and its context. The context is relevant with the scope of the training, e.g. the relevant project or task. For each trining, the relevant quality measures form the result of the experiment (i.e., accuracy, F1 measure, mean squared error etc) are also reported.
 
 ### Info population:
 The descriptive information and the context can be hardcoded in the training process. The relevnt information can be populated automatically every time a training in the same context is executed. The result information is directly given by the trainings output.
