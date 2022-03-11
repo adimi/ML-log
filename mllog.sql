@@ -21,7 +21,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 -- GTID state at the beginning of the backup 
 --
 
-SET @@GLOBAL.GTID_PURGED='810e863d-4d88-11ea-b0b2-000c29288c01:1-12950';
+SET @@GLOBAL.GTID_PURGED='810e863d-4d88-11ea-b0b2-000c29288c01:1-12953';
 
 --
 -- Table structure for table `algorithm`
@@ -35,6 +35,22 @@ CREATE TABLE `algorithm` (
   `name` varchar(100) DEFAULT NULL,
   `parameters` json DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `class_representation`
+--
+
+DROP TABLE IF EXISTS `class_representation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `class_representation` (
+  `dataset_id` int(11) NOT NULL,
+  `class` varchar(100) DEFAULT NULL,
+  `samples_count` int(11) DEFAULT NULL,
+  UNIQUE KEY `dataset_id` (`dataset_id`,`class`),
+  CONSTRAINT `class_representation_ibfk_1` FOREIGN KEY (`dataset_id`) REFERENCES `dataset` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -137,6 +153,25 @@ CREATE TABLE `feature` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `feature_correlation`
+--
+
+DROP TABLE IF EXISTS `feature_correlation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feature_correlation` (
+  `featureA` int(11) DEFAULT NULL,
+  `featureB` int(11) DEFAULT NULL,
+  `measure` varchar(100) DEFAULT NULL,
+  `value` float DEFAULT NULL,
+  KEY `featureA` (`featureA`),
+  KEY `featureB` (`featureB`),
+  CONSTRAINT `feature_correlation_ibfk_1` FOREIGN KEY (`featureA`) REFERENCES `feature` (`id`),
+  CONSTRAINT `feature_correlation_ibfk_2` FOREIGN KEY (`featureB`) REFERENCES `feature` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `multistep_process`
 --
 
@@ -201,4 +236,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-10 14:35:39
+-- Dump completed on 2022-03-11 14:18:27
